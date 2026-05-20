@@ -1,11 +1,18 @@
 name: DevOps Team
-on: workflow_dispatch
+on: workflow_dispatch 
 jobs:
-  DevOps:
+ build:
    runs-on: ubuntu-latest
    steps:
-     - name: Demo_dev
-       run: |
-        echo "this is line one"
-        echo "this is line two"
-        echo "this is line three"
+    - name: Build step
+      run: echo "A demo Buld Step"
+ test:
+   run-on: ubuntu-latest
+   steps:
+    - name: Test step
+      run: echo "A demo Test Step"
+ Deploy:
+   run-on: ubuntu-latest
+   steps:
+   - name: Deploy Step
+     run: echo "A demo Deploy Step"
