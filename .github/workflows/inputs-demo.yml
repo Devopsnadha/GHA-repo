@@ -3,16 +3,16 @@ on:
   workflow_dispatch: 
     inputs:
       environment:
-        description: choose the environment to deploy
+        description: "choose the environment to deploy"
         required: true
-        default: dev
+        default: "dev"
         options:
-          - dev
-          - test
-          - prod
-        artifact_tag:
-         describe: choose the tag to deploy
-         required: true
+         - dev
+         - test
+         - prod
+      artifact_tag:
+       description: choose the tag to deploy
+       required: true
 jobs:
  input-demo:
   runs-on: ubuntu-latest
