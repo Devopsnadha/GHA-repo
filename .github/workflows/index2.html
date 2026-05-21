@@ -1,166 +1,321 @@
-# Live Website HTML Template
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Live Website</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Velora</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-        body {
-            background: #f4f4f4;
-            color: #333;
-        }
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
 
-        header {
-            background: #111;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
+    body {
+      background: #0f172a;
+      color: white;
+      overflow-x: hidden;
+    }
 
-        nav {
-            margin-top: 10px;
-        }
+    header {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      padding: 20px 10%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      backdrop-filter: blur(10px);
+      background: rgba(15, 23, 42, 0.6);
+      z-index: 1000;
+    }
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            font-size: 18px;
-        }
+    .logo {
+      font-size: 28px;
+      font-weight: 700;
+      color: #38bdf8;
+      letter-spacing: 1px;
+    }
 
-        .hero {
-            height: 80vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            background: linear-gradient(to right, #007cf0, #00dfd8);
-            color: white;
-            text-align: center;
-        }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 25px;
+      transition: 0.3s;
+      font-weight: 500;
+    }
 
-        .hero h1 {
-            font-size: 50px;
-            margin-bottom: 20px;
-        }
+    nav a:hover {
+      color: #38bdf8;
+    }
 
-        .hero p {
-            font-size: 20px;
-            margin-bottom: 20px;
-        }
+    .hero {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      flex-direction: column;
+      padding: 0 20px;
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      position: relative;
+      overflow: hidden;
+    }
 
-        .btn {
-            padding: 12px 25px;
-            background: white;
-            color: #007cf0;
-            border: none;
-            border-radius: 5px;
-            font-size: 18px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
+    .hero::before,
+    .hero::after {
+      content: '';
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: rgba(56, 189, 248, 0.15);
+      filter: blur(80px);
+      animation: float 8s infinite ease-in-out;
+    }
 
-        .btn:hover {
-            background: #111;
-            color: white;
-        }
+    .hero::before {
+      top: -100px;
+      left: -100px;
+    }
 
-        section {
-            padding: 60px 20px;
-            text-align: center;
-        }
+    .hero::after {
+      bottom: -100px;
+      right: -100px;
+      animation-delay: 4s;
+    }
 
-        .cards {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin-top: 30px;
-        }
+    @keyframes float {
+      0% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(30px);
+      }
+      100% {
+        transform: translateY(0px);
+      }
+    }
 
-        .card {
-            background: white;
-            padding: 25px;
-            width: 300px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
+    .hero h1 {
+      font-size: 70px;
+      margin-bottom: 20px;
+      animation: fadeUp 1.2s ease;
+    }
 
-        footer {
-            background: #111;
-            color: white;
-            text-align: center;
-            padding: 20px;
-        }
-    </style>
+    .hero p {
+      max-width: 700px;
+      font-size: 20px;
+      line-height: 1.7;
+      color: #cbd5e1;
+      animation: fadeUp 1.6s ease;
+    }
+
+    .btn {
+      margin-top: 35px;
+      padding: 15px 35px;
+      border: none;
+      border-radius: 40px;
+      background: #38bdf8;
+      color: #0f172a;
+      font-size: 18px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.4s ease;
+      animation: fadeUp 2s ease;
+      box-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
+    }
+
+    .btn:hover {
+      transform: scale(1.08);
+      background: white;
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    section {
+      padding: 100px 10%;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 42px;
+      margin-bottom: 60px;
+      color: #38bdf8;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 35px;
+      border-radius: 20px;
+      transition: 0.4s ease;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(10px);
+    }
+
+    .card:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 0 30px rgba(56, 189, 248, 0.25);
+    }
+
+    .card h3 {
+      margin-bottom: 15px;
+      font-size: 24px;
+    }
+
+    .card p {
+      color: #cbd5e1;
+      line-height: 1.7;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      background: #020617;
+      color: #94a3b8;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 1s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media(max-width: 768px) {
+      .hero h1 {
+        font-size: 48px;
+      }
+
+      nav {
+        display: none;
+      }
+    }
+  </style>
 </head>
 <body>
 
-<header>
-    <h1>VELORA</h1>
+  <header>
+    <div class="logo">Velora</div>
+
     <nav>
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#contact">Contact</a>
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
     </nav>
-</header>
+  </header>
 
-<section class="hero" id="home">
-    <h1>Welcome to VELORA</h1>
-    <p>Create and host your live website easily</p>
+  <section class="hero" id="home">
+    <h1>Build The Future With Velora</h1>
+    <p>
+      Modern cloud solutions, DevOps automation, scalable infrastructure,
+      and next-generation digital experiences.
+    </p>
+
     <button class="btn" onclick="showMessage()">Get Started</button>
-</section>
+  </section>
 
-<section id="about">
-    <h2>About Us</h2>
-    <p>We build modern responsive websites using HTML, CSS, and JavaScript.</p>
-</section>
-
-<section id="services">
-    <h2>Our Services</h2>
+  <section id="services" class="reveal">
+    <h2 class="section-title">Our Services</h2>
 
     <div class="cards">
-        <div class="card">
-            <h3>Web Design</h3>
-            <p>Modern responsive website designs.</p>
-        </div>
+      <div class="card">
+        <h3>Cloud Infrastructure</h3>
+        <p>
+          Deploy scalable applications using AWS cloud-native architecture.
+        </p>
+      </div>
 
-        <div class="card">
-            <h3>Cloud Hosting</h3>
-            <p>Deploy websites on AWS S3 and CloudFront.</p>
-        </div>
+      <div class="card">
+        <h3>DevOps Automation</h3>
+        <p>
+          CI/CD pipelines using GitHub Actions, Jenkins, Docker, and Kubernetes.
+        </p>
+      </div>
 
-        <div class="card">
-            <h3>DevOps</h3>
-            <p>CI/CD automation using GitHub Actions.</p>
-        </div>
+      <div class="card">
+        <h3>Monitoring</h3>
+        <p>
+          Real-time observability using Prometheus, Grafana, and ELK stack.
+        </p>
+      </div>
     </div>
-</section>
+  </section>
 
-<section id="contact">
-    <h2>Contact</h2>
-    <p>Email: info@velora.in</p>
-</section>
+  <section id="about" class="reveal">
+    <h2 class="section-title">About Velora</h2>
 
-<footer>
-    <p>© 2026 My Website | All Rights Reserved</p>
-</footer>
+    <div class="card">
+      <p>
+        Velora delivers modern engineering solutions with a focus on automation,
+        performance, security, and cloud transformation.
+      </p>
+    </div>
+  </section>
 
-<script>
+  <section id="contact" class="reveal">
+    <h2 class="section-title">Contact</h2>
+
+    <div class="card">
+      <p>Email: contact@velora.com</p>
+      <p>Phone: +91 9876543210</p>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Velora. All Rights Reserved.
+  </footer>
+
+  <script>
     function showMessage() {
-        alert("Website is Live Successfully!");
+      alert('Welcome to Velora!');
     }
-</script>
+
+    function revealSections() {
+      const reveals = document.querySelectorAll('.reveal');
+
+      reveals.forEach(section => {
+        const windowHeight = window.innerHeight;
+        const revealTop = section.getBoundingClientRect().top;
+        const revealPoint = 120;
+
+        if (revealTop < windowHeight - revealPoint) {
+          section.classList.add('active');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', revealSections);
+    revealSections();
+  </script>
 
 </body>
 </html>
