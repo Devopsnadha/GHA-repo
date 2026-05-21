@@ -6,6 +6,7 @@ on:
         description: "choose the environment to deploy"
         required: true
         default: "dev"
+        type: choice
         options:
          - dev
          - test
@@ -13,6 +14,7 @@ on:
       artifact_tag:
        description: choose the tag to deploy
        required: true
+       type: string
 jobs:
  input-demo:
   runs-on: ubuntu-latest
