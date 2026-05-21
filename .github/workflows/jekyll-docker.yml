@@ -1,5 +1,8 @@
 name: Deploy HTML to S3
-on: push
+on: 
+ push:
+  banches:
+   - main
 jobs:
   deploy:
    runs-on: ubuntu-latest
@@ -9,11 +12,11 @@ jobs:
     - name: configure aws credentials
       uses: aws-actions/configure-aws-credentials@v4
       with:
-       aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-       aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-       aws-region: eu-west-2
-     - name: copying static code to s3
-       run: |
-         aws s3 sync ./ s3//deploy-gha-static-website/\
-         --exclude "*"\
-         --include "index.html"
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: eu-west-2
+    - name: copying static code to s3
+      run: |
+       aws s3 sync ./ s3/deploy-gha-static-website/ \
+       --exclude "*"\
+       --include "index.html"
