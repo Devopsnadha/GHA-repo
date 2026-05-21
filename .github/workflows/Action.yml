@@ -6,6 +6,5 @@ jobs:
     steps:
      - name: checkout the code
        uses: actions/checkout@v4 
-       with:
-         ref: main
-         fetch_depth: 1
+     - name: index.html
+       run: cat index.html
