@@ -1,0 +1,8 @@
+name: GitHub Action Demo
+on: push
+jobs:
+  action_demo:
+    runs-on: ubuntu-latest
+    steps:
+     - name: checkout the code
+       uses: actions/checkout@v4 
