@@ -26,3 +26,6 @@ jobs:
     steps:
       - name: Deploying context variable
         run: echo "Deploying context variable ${{ github.repository }}"
+
+      - name: print all variables in github
+        run: echo " testing the contex ${{ toJson(github) }}"
