@@ -1,0 +1,11 @@
+name: Context variable
+on: push
+jobs:
+  context-demo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: context variables
+        run: |
+         echo "This workflow is trriggered by ${{ github.actor }}"
+         echo "The repository name ${{ github.repository }}"
+      
