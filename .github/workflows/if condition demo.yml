@@ -10,4 +10,6 @@ jobs:
    steps:
     - name: run this step
       if: ${{ github.ref == 'refs/heads/main' }} # we have to use ingle quote
-      run: echo "Runing this step" 
+      run: echo "Runing this step"
+    - name: run this step
+      run: echo "Runing this step without if condition"
