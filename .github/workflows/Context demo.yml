@@ -1,6 +1,6 @@
 name: Context variable
 on: 
- workflow_dispatch:
+ push:
   environment:
    description: "to test the environmentes in context variable"
    required: true
