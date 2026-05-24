@@ -1,0 +1,20 @@
+name: New input demo
+on: 
+ workflow_dispatch:
+  inputs:
+   environment:
+    description: deployig to the environment
+    defaults: "dev"
+    required: true
+    type: choice
+    options:
+     - dev
+     - stage
+     - prod
+   artifact_tag:
+    description: choosing the specific tag
+    type: "string"
+jobs:
+   deploy:
+    - name: deploying specific artifact tag to specifc env 
+     run: echo deploying the ${{ inputs.artifact_tag }} application to ${{ inpts.environment }}
