@@ -8,4 +8,21 @@ jobs:
         run: |
          echo "This workflow is trriggered by ${{ github.actor }}"
          echo "The repository name ${{ github.repository }}"
-      
+  build-context-demo:
+    runs-on: ubuntu-latest
+    needs: context-demo
+    steps:
+      - name: Deploying context variable
+        run: echo "Building context variable ${{ github.repository }}" 
+  test-context-demo:
+    runs-on: ubuntu-latest
+    needs: build-context-demo
+    steps:
+      - name: Deploying context variable
+        run: echo "Testing context variable ${{ github.repository }}"
+  deploy-context-demo:
+    runs-on: ubuntu-latest
+    needs: test-context-demo
+    steps:
+      - name: Deploying context variable
+        run: echo "Deploying context variable ${{ github.repository }}"
