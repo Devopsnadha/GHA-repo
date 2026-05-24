@@ -1,5 +1,15 @@
 name: Context variable
-on: push
+on: 
+push:
+ environment:
+  description: "to test the environmentes in context variable"
+  required: true
+  default: "dev"
+  type: choice
+  options:
+   - dev
+   - stage
+   - prod
 jobs:
   context-demo:
     runs-on: ubuntu-latest
