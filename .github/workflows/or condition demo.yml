@@ -1,0 +1,9 @@
+name: Or condition demo
+on: push
+jobs:
+ demo:
+  runs-on: ubuntu-latest
+  steps:
+    - name: or condition demo
+      if: ${{ github.actor == 'ram' || github.actor == 'Devopsnadha' }}
+      run: echo "Its trigger by either ram or Devopsnadha"
