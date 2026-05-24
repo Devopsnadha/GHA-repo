@@ -4,7 +4,7 @@ on:
   inputs:
    environment:
     description: deployig to the environment
-    defaults: "dev"
+    default: "dev"
     required: true
     type: choice
     options:
@@ -15,6 +15,8 @@ on:
     description: choosing the specific tag
     type: "string"
 jobs:
-   deploy:
-    - name: deploying specific artifact tag to specifc env 
-     run: echo deploying the ${{ inputs.artifact_tag }} application to ${{ inpts.environment }}
+   input-demo:
+     runs-on: ubuntu-latest
+     steps:
+      - name: deploying specific artifact tag to specifc env 
+        run: echo deploying the ${{ inputs.artifact_tag }} application to ${{ inputs.environment }}
