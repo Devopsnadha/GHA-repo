@@ -39,3 +39,5 @@ jobs:
 
       - name: print all variables in github
         run: echo " testing the contex ${{ toJson(github) }}"
+      - name: print enviroment vairiable
+        run: echo "$GITHUB_SHA"
