@@ -19,4 +19,4 @@ jobs:
    runs-on: ubuntu-latest
    steps:
      - name: deploy tag to stage
-       run: echo"deploying tag ${{ inputs.artifact_tag }} to application env ${{ inputs.environment }}"
+       run: echo "deploying tag ${{ inputs.artifact_tag }} to application env ${{ inputs.environment }}"
