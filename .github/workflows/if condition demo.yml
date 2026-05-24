@@ -1,4 +1,4 @@
-name: 
+name: If condition demo
 on: 
  push:
   branches:
@@ -9,5 +9,5 @@ jobs:
    runs-on: ubuntu-latest
    steps:
     - name: run this step
-      if: github.ref == "refs/heads/main"
+      if: ${{ github.ref == 'refs/heads/main' }} # we have to use ingle quote
       run: echo "Runing this step" 
