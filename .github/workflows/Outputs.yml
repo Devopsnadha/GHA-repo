@@ -6,6 +6,6 @@ jobs:
   steps:
     - name: step one
       id : S1
-      run: echo "version:0.1.2" >> $GITHUB_OUTPUT
+      run: echo "version=0.1.2" >> $GITHUB_OUTPUT
     - name: step two
       run: echo "This vesion is ${{ steps.S1.outputs.version}}" #we are sharing data b/w steps
