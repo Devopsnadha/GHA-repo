@@ -1,0 +1,11 @@
+name: Outputs demo
+on: push
+jobs:
+ job1:
+  runs-on: ubuntu-latest
+  steps:
+    - name: step one
+      id : S1
+      run: echo "version:0.1.2" >> $GITHUB_OUTPUT
+    - name: step two
+      run: echo "This vesion is ${{ steps.S1.outputs.version}}" #we are sharing data b/w steps
