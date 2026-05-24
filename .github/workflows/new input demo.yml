@@ -3,20 +3,20 @@ on:
  workflow_dispatch:
   inputs:
    environment:
-    description: deployig to the environment
+    description: "the environment where the application has to deploy"
     default: "dev"
-    required: true
     type: choice
+    required: true
     options:
      - dev
      - stage
-     - prod
-   artifact_tag:
-    description: choosing the specific tag
-    type: "string"
+     - prod 
+   artifact_tag: 
+    description: the version of tag to deploy
+    type: string
 jobs:
-   input-demo:
-     runs-on: ubuntu-latest
-     steps:
-      - name: deploying specific artifact tag to specifc env 
-        run: echo deploying the ${{ inputs.artifact_tag }} application to ${{ inputs.environment }}
+  input-demo:
+   runs-on: ubuntu-latest
+   steps:
+     - name: deploy tag to stage
+       run: echo"deploying tag ${{ inputs.artifact_tag }} to application env ${{ inputs.environment }}"
