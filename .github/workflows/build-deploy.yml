@@ -15,6 +15,7 @@ jobs:
      - name: build step
        run: echo "Building the application"
   deploy:
+   needs: build
    if: github.event_name == 'push' && github.ref_name == 'main'
    runs-on: ubuntu-latest
    steps:
