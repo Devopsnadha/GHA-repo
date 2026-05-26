@@ -1,0 +1,19 @@
+name: if example for develop
+on:
+ push:
+  branches:
+   -main
+   - develop
+jobs:
+ dev-deploy:
+  runs-on: ubuntu
+  if: github.ref_name == develop && github.event_name == 'push'
+  steps: 
+   - name: Dev-deploy
+     run: echo "deploying the application during the push event"
+ success_notify:
+  if: github.ref_name == main && github.event_name == 'push'
+  runs-on: ubuntu-latest
+  steps:
+   - name: Notify success
+     run: echo "success email sent to team"
