@@ -10,7 +10,19 @@ jobs:
   runs-on: ubuntu-latest
   steps: 
    - name: Dev-deploy
-     run: echo "deploying the application during the push event"
+     run: echo "deploying the application into dev"
+ stage-deploy:
+  if: github.ref_name == 'develop' && github.event_name == 'push'
+  runs-on: ubuntu-latest
+  steps: 
+   - name: Dev-deploy
+     run: echo "deploying the application into stage"
+ prod-deploy:
+  if: github.ref_name == 'develop' && github.event_name == 'push'
+  runs-on: ubuntu-latest
+  steps: 
+   - name: Prod-deploy
+     run: echo "deploying the application into prod"
  success_notify:
   needs: dev-deploy
   if: always() && !failure()
