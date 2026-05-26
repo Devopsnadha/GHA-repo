@@ -16,4 +16,4 @@ jobs:
   runs-on: ubuntu-latest
   steps:
    - name: Notify success
-     run: echo "success email sent to team"
+     run: echo "success email sent to team regarding event"
