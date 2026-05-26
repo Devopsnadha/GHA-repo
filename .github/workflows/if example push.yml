@@ -2,7 +2,7 @@ name: if example for develop
 on:
  push:
   branches:
-   -main
+   - main
    - develop
 jobs:
  dev-deploy:
