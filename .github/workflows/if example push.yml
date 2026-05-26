@@ -12,6 +12,7 @@ jobs:
    - name: Dev-deploy
      run: echo "deploying the application during the push event"
  success_notify:
+  needs: dev-deploy
   if: github.ref_name == 'main' && github.event_name == 'push'
   runs-on: ubuntu-latest
   steps:
