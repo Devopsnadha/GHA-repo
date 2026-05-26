@@ -12,26 +12,28 @@ jobs:
    - name: Dev-deploy
      run: echo "deploying the application into dev"
  stage-deploy:
+  needs: dev-deploy
   if: github.ref_name == 'develop' && github.event_name == 'push'
   runs-on: ubuntu-latest
   steps: 
    - name: Dev-deploy
      run: echo "deploying the application into stage"
  prod-deploy:
+  needs: stage-deploy
   if: github.ref_name == 'develop' && github.event_name == 'push'
   runs-on: ubuntu-latest
   steps: 
    - name: Prod-deploy
      run: echo "deploying the application into prod"
  success_notify:
-  needs: dev-deploy
+  needs: ['dev-deploy', 'stage-deploy', 'prod-deploy']
   if: always() && !failure()
   runs-on: ubuntu-latest
   steps:
    - name: Notify success
      run: echo "success email sent to team regarding event"
  failure_notify:
-  needs: dev-deploy
+  needs: ['dev-deploy', 'stage-deploy', 'prod-deploy']
   if: failure()
   runs-on: ubuntu-latest
   steps:
