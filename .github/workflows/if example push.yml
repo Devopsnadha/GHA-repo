@@ -13,8 +13,15 @@ jobs:
      run: echo "deploying the application during the push event"
  success_notify:
   needs: dev-deploy
-  if: github.ref_name == 'main' && github.event_name == 'push'
+  if: always() && !failure()
   runs-on: ubuntu-latest
   steps:
    - name: Notify success
      run: echo "success email sent to team regarding event"
+ failure_notify:
+  needs: dev-deploy
+  if: failure()
+  runs-on: ubuntu-latest
+  steps:
+   - name: Notify failure
+     run: echo "Failure email sent to team regarding event"
