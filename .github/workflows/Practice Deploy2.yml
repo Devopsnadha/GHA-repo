@@ -1,4 +1,4 @@
-name: deploying new HTML to S3
+name: Velkart HTML to S3
 on:
  push:
   branches:
@@ -17,6 +17,6 @@ jobs:
        aws-region: eu-west-2
     - name: copying html static to s3
       run: |
-       aws s3 sync ./ s3://deploy-gha-static-website/ \
+       aws s3 sync https://github.com/Devopsnadha/Velkart/ s3://velk-demo/ \
         --exclude "*" \
         --include "*.html"
